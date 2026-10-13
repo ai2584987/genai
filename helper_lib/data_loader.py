@@ -14,3 +14,10 @@ def get_data_loader(data_dir, batch_size=32, train=True):
     )
     loader = DataLoader(dataset, batch_size=batch_size, shuffle=train)
     return loader
+
+
+def get_transform(image_size=64):
+    # Same preprocessing as get_data_loader, used by the API
+    return transforms.Compose(
+        [transforms.Resize((image_size, image_size)), transforms.ToTensor()]
+    )
