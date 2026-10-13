@@ -2,8 +2,10 @@ from typing import Union
 from fastapi import FastAPI
 from pydantic import BaseModel
 from app.bigram_model import BigramModel
+from app.classify_router import router as classify_router
 
 app = FastAPI()
+app.include_router(classify_router)
 
 # import spacy
 import spacy
