@@ -25,9 +25,8 @@ class ImageClassifier:
                 "Run Assignment2__CNN.ipynb to train the model and create them."
             )
         self.model = get_model("CNN")
-        self.model.load_state_dict(
-            torch.load(weights_path, map_location="cpu", weights_only=True)
-        )
+        state = torch.load(weights_path, map_location="cpu", weights_only=True)  
+        self.model.load_state_dict(state.get("model_state_dict", state))
         self.model.eval()
         # Same preprocessing as training (single source of truth in helper_lib)
         self.transform = get_transform(64)
