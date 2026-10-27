@@ -1,0 +1,26 @@
+[project]
+name = "genai"
+version = "0.1.0"
+description = "FastAPI app: bigram text generation, spaCy embeddings, CIFAR-10 CNN classifier"
+readme = "README.md"
+authors = [{ name = "ai2584987", email = "ai2584@columbia.edu" }]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]>=0.115",
+    "spacy>=3.8",
+    "en-core-web-md",
+    "torch>=2.4",
+    "torchvision>=0.19",
+    "pillow>=10.0",
+    "tqdm>=4.66",
+]
+
+[tool.uv]
+package = false  # this is an app, not an installable library
+
+[tool.uv.sources]
+en-core-web-md = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.8.0/en_core_web_md-3.8.0-py3-none-any.whl" }
+
+[dependency-groups]
+# Only for notebooks in VS Code (not installed in Docker: the Dockerfile uses --no-dev)
+dev = ["ipykernel>=6.29", "matplotlib>=3.9", "requests>=2.32"]

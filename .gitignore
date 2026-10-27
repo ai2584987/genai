@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.py[oc]
+.ipynb_checkpoints/
+.DS_Store
+.env
+# training artifacts (only the final weights in app/models/ are committed)
+data/
+checkpoints/
